@@ -1,0 +1,16 @@
+
+#+TITLE: My DOOM EMACS setup guide
+#+DESCRIPTION: A guide to installing and configuring EMACS with the DOOM configuration
+#+AUTHOR: Shawn Gerrard <shawn.gerrard@gmail.com>
+
+* DOOM EMACS setup
+A guide to installing and configuring my DOOM EMACS setup.
+
+* Pre-requisites
+You need to ensure the following dependencies are installed to follow this guide successfully.
+
+- Ubuntu LTS (currently 22.04+)
+
+  #+begin_quote
+*Note*: It's recommended that you follow my [[https://github.com/shawngerrard/ubuntu-tooling][guide to installing and configuring Ubuntu]].
+  #+end_quote
