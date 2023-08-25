@@ -6,7 +6,7 @@
 * DOOM EMACS setup
 A guide to installing and configuring my DOOM EMACS setup.
 
-* Pre-requisites
+* Pre-requisites :prereqs:
 You need to ensure the following dependencies are installed to follow this guide successfully.
 
 - Ubuntu LTS (currently 22.04+)
@@ -14,3 +14,31 @@ You need to ensure the following dependencies are installed to follow this guide
   #+begin_quote
 *Note*: It's recommended that you follow my [[https://github.com/shawngerrard/ubuntu-tooling][guide to installing and configuring Ubuntu]].
   #+end_quote
+
+- Git 2.23+
+- [[Https://github.com/BurntSushi/ripgrep][ripgrep]] (11.01)
+- (Optional) [[https://github.com/sharkdp/fd][fd]]
+
+* Installing EMACS :installingemacs:
+
+The first step is to install the base vanilla Gnu-EMACS application compatible with DOOM. For the purposes of this guide, we'll be installing *Gnu-EMACS version 28.1*. At this point in time, the minimum required EMACS version is 27.1.
+
+#+begin_quote
+*Note*: You'll need to review the [[https://github.com/doomemacs/doomemacs#prerequisites][DOOM prerequisites for EMACS]] to identify the EMACS versions compatible with DOOM.
+#+end_quote
+
+** Installing EMACS using the Ubuntu apt package manager
+
+To get up and running quickly, you can install EMACS using the ~apt~ package manager.
+
+#!/usr/bin/env bash What is this
+What is this
+#!/usr/bin/env bash
+what is this
+
+
+
+
+#+begin_src
+This is a source block
+#+end_src
