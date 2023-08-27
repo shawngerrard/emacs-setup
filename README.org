@@ -31,7 +31,11 @@ The first step is to install the base vanilla Gnu-EMACS application compatible w
 
 To get up and running quickly, you can install EMACS using the ~apt~ package manager.
 
-#!/usr/bin/env bash
+#+begin_src bash
 sudo apt install emacs
+#+end_src
+
+
+
 
 ** (Recommended)
