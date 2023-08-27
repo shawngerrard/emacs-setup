@@ -27,15 +27,47 @@ The first step is to install the base vanilla Gnu-EMACS application compatible w
 *Note*: You'll need to review the [[https://github.com/doomemacs/doomemacs#prerequisites][DOOM prerequisites for EMACS]] to identify the EMACS versions compatible with DOOM.
 #+end_quote
 
-** Installing EMACS using the Ubuntu apt package manager
+** Installing EMACS using the Ubuntu apt package manager :apt:
 
-To get up and running quickly, you can install EMACS using the ~apt~ package manager.
+To get up and running quickly, you can install ~emacs~ using the ~apt~ package manager.
 
 #+begin_src bash
 sudo apt install emacs
 #+end_src
 
+To uninstall ~emacs~ you'll need to also remove all dependencies.
 
+#+begin_src bash
+sudo apt-get remove emacs emacs23 emacs24 emacs25 emacs26 emacs-bin-common emacs-common emacs-el
+#+end_src
 
+** (Recommended) Installing EMACS by building from source :sourcecode:
 
-** (Recommended)
+You'll need the following packages installed to be able to build the ~emacs~ source.
+
+#+begin_src bash
+libcurses-dev libgnutls28-dev gnutls-bin pkg-config
+#+end_src
+
+Then, obtain the source code tarball for the specific version you want. In this case, we're installing version 28.1.
+
+#+begin_src bash
+wget https://ftp.gnu.org/gnu/emacs/emacs-28.1.tar.xz
+#+end_src
+
+Extract the source code from the tarball.
+
+#+begin_src bash
+tar xvf emacs-28.1.tar.xz
+#+end_src
+
+Finally, configure, build, and install ~emacs~ using the scipts supplied with the source files.
+
+#+begin_src bash
+cd emacs-28.1
+./configure
+make
+make install
+#+end_src
+
+You should now be able to start ~emacs~ successfully.
