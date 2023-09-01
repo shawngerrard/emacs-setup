@@ -81,7 +81,7 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 ~/.config/emacs/bin/doom install
 #+end_src
 
-Add the DOOM binary files to the ~PATH~ environment variable. You'll need to add the following line to the bottom of your ~~/.bashrc~ configuration file:
+Add the DOOM binary files to the ~PATH~ environment variable. You'll need to add the following line to the bottom of your ~​~/.bashrc~ configuration file:
 
 #+begin_src bash
 export PATH="~/.config/emacs/bin:$PATH"
