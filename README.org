@@ -88,7 +88,7 @@ export PATH="~/.config/emacs/bin:$PATH"
 #+end_src
 
 #+begin_quote
-*Note*: Delete the ~~/.emacs.d~ folder if this exists - ~emacs~ will initially look in there for configuration files.
+*Note*: Delete the ~​~/.emacs.d~ folder if this exists - ~emacs~ will initially look in there for configuration files.
 #+end_quote
 
 If you have any private ~emacs~ configuration to sync with DOOM, or if you've made changes to ~init.el~ or ~packages.el~, you'll need to run ~doom sync~.
