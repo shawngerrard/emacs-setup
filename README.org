@@ -153,21 +153,25 @@ By default, I run DOOMEMACS in ~evil~ mode, which means that keybinds in EMACS e
 - ~SPC-~ is known as a "Leader" key:
   - *In evil-mode* this is bound to ~SPC~.
 
-  > *Note*: You must change to evil-mode to use the leader key in DOOMEMACS.
+  #+begin_quote
+*Note*: You must change to evil-mode to use the leader key in DOOMEMACS.
+  #+end_quote
 
-**** Disable evil-mode
+*** Disable evil-mode
 
 *Rationale*: Some of the descriptions in documentation (such as ~SPC-h~ or ~M-x~) for DOOMEMACS are intended for SPACEMACS users rather than ~vi/vim~ users, which can be confusing as simple keybinds for /killing/yanking/ etc are different from what is stated.
 
 Easiest way to disable evil-mode is to toggle is with: ~M-x 'evil-mode'~
 
-> *Note*: This will only toggle evil-mode for the current EMACS session. To disable evil-mode permanently, refer to the StackExchange forum post: [[https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere][https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere]]
+#+begin_quote
+*Note*: This will only toggle evil-mode for the current EMACS session. To disable evil-mode permanently, refer to the StackExchange forum post: [[https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere][https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere]]
+#+end_quote
 
-**** Insert a link snippet (E.G - a URL)
+*** Insert a link snippet (E.G - a URL)
 
 Insert a URL with ~C-c C-l~ and paste in the URL.
 
-**** Kill/yank commands
+*** Kill/yank commands
 
 I prefer using the ~mark~ functionality to select text. You can set a mark by using ~C-SPC~, then use your left/right keys to highlight the text you want to manipulate.
 
@@ -185,7 +189,7 @@ Then, press any of the operations as per below to operate over the text accordin
 - Cut: ~C-w~
 - Paste: ~C-y~
 
-**** Insert an escape character
+*** Insert an escape character
 
 *Rationale*: When inserting a file path into the start of a code block, such as ~​~/documents/~, this can create formatting issues when the org file is rendered, requiring us to place an escape character beside the initial tilde.
 
