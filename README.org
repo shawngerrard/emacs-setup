@@ -41,7 +41,7 @@ To uninstall ~emacs~ you'll need to also remove all dependencies.
 sudo apt-get remove emacs emacs28 emacs-bin-common emacs-common emacs-el
 #+end_src
 
-** (Recommended) Installing EMACS by building from source :sourcecode:
+** (Recommended) Installing EMACS by building from source :source:
 
 You'll need the following packages installed to build the ~emacs~ source.
 
@@ -72,88 +72,29 @@ sudo make install
 
 You should now be able to start ~emacs~ successfully.
 
-To uninstall ~emacs~ you can follow the steps above but instead of ~sudo make install~ you can run ~sudo make uninstall~
+* Installing DOOM :installingdoom:
 
-* Apply the DOOM configuration to EMACS
-
-You can find information on the DOOM configuration framework for ~emacs~ in the [[https://github.com/doomemacs/doomemacs#introduction][DOOMEMACS github repository]].
-
-It's recommended that you ensure your system is up-to-date.
+Run the following command to clone the DOOM configuration to your local computer:
 
 #+begin_src bash
-sudo apt update && sudo apt upgrade
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
 #+end_src
 
-Now, we clone the DOOM configuration from git into the ~$HOME/emacs.d~ directory, and use the ~doom install~ function from the binary.
+Add the DOOM binary files to the ~PATH~ environment variable. You'll need to add the following line to the bottom of your ~​~/.bashrc~ configuration file:
 
 #+begin_src bash
-git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+export PATH="~/.config/emacs/bin:$PATH"
 #+end_src
 
 #+begin_quote
-*Note*: Ensure that you have an SSH authentication key-pair loaded into git and the local ssh-agent. You may need to add this code to your ~bashrc~ configuration.
+*Note*: Delete the ~​~/.emacs.d~ folder if this exists - ~emacs~ will initially look in there for configuration files.
 #+end_quote
 
-You should be able to run ~doom doctor~ to diagnose any problems associated with an installation or with the system configuration.
+If you have any private ~emacs~ configuration to sync with DOOM, or if you've made changes to ~init.el~ or ~packages.el~, you'll need to run ~doom sync~.
 
-The next time you open ~emacs~, your DOOM configuration should be loaded.
+Finally, to run the new setup, start up ~emacs~ normally in the terminal. You should be met with the DOOM landing screen.
 
-* Customizations
-
-I've made a number of customizations to EMACS that are helpful.
-
-** Org-Agenda
-
-I've made an update to `~/.config/doom/init.el` to change the directory that `org-agenda` uses to find TODO items (`~/documents/*`).
-
-At the bottom of the `init.el` file, I've inserted the following code:
-#+begin_src elisp
-(setq org-agenda-files (directory-files-recursively "~/documents/" "\\.org$"))
-#+end_src
-
-Restart DOOMEMACS to apply changes. When prompted, select `n` to avoid importing variables from other org files outside of this directory.
-
-* Useful keybinds
-
-By default, I run DOOMEMACS in `evil` mode, which means that keybinds in EMACS emulate `vi/vim` keybinds.
-
-** Legend for US Keyboard layout
-
-- `M-` is short for "Meta key" and is bound to `ALT`
-- `C-` is short for "Control key" and is bound to `CTRL`
-- `S-` is short for "Super key" and is bound to `SHIFT`
-- `SPC-` is known as a "Leader" key:
-  - *In evil-mode* this is bound to `SPC`.
-
-  > *Note*: You must change to evil-mode to use the leader key in DOOMEMACS.
-
-**** Disable evil-mode
-
-*Rationale*: Some of the descriptions in documentation (such as `SPC-h` or `M-x`) for DOOMEMACS are intended for SPACEMACS users rather than `vi/vim` users, which can be confusing as simple keybinds for /killing/yanking/ etc are different from what is stated.
-
-Easiest way to disable evil-mode is to toggle is with: `M-x 'evil-mode'`
-
-> *Note*: This will only toggle evil-mode for the current EMACS session. To disable evil-mode permanently, refer to the StackExchange forum post: [[https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere][https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere]]
-
-**** Insert a link snippet (E.G - a URL)
-
-Insert a URL with `C-c C-l` and paste in the URL.
-
-**** Kill/yank commands
-
-I prefer using the `mark` functionality to select text. You can set a mark by using `C-SPC`, then use your left/right keys to highlight the text you want to manipulate.
-
-Then, press any of the operations as per below to operate over the text accordingly.
-
-***** Evil mode
-
-- Copy: `y`
-- Cut: `d`
-- Paste: `P` or `S-p`
-
-***** Default mode
-
-- Copy: `M-w`
-- Cut: `C-w`
-- Paste: `C-y`
+#+begin_quote
+*Note*: Visit [[https://github.com/doomemacs/doomemacs][the official DOOM GitHub repository]] for more information if you have any installation issues.
+#+end_quote
