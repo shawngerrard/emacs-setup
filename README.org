@@ -157,11 +157,13 @@ By default, I run DOOMEMACS in ~evil~ mode, which means that keybinds in EMACS e
 *Note*: You must change to evil-mode to use the leader key in DOOMEMACS.
   #+end_quote
 
+** Keybinds
+
 *** Disable evil-mode
 
 *Rationale*: Some of the descriptions in documentation (such as ~SPC-h~ or ~M-x~) for DOOMEMACS are intended for SPACEMACS users rather than ~vi/vim~ users, which can be confusing as simple keybinds for /killing/yanking/ etc are different from what is stated.
 
-Easiest way to disable evil-mode is to toggle is with: ~M-x 'evil-mode'~
+Easiest way to disable evil-mode is to toggle is with: ~M-x evil-mode~
 
 #+begin_quote
 *Note*: This will only toggle evil-mode for the current EMACS session. To disable evil-mode permanently, refer to the StackExchange forum post: [[https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere][https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere]]
