@@ -98,3 +98,62 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 You should be able to run ~doom doctor~ to diagnose any problems associated with an installation or with the system configuration.
 
 The next time you open ~emacs~, your DOOM configuration should be loaded.
+
+* Customizations
+
+I've made a number of customizations to EMACS that are helpful.
+
+** Org-Agenda
+
+I've made an update to `~/.config/doom/init.el` to change the directory that `org-agenda` uses to find TODO items (`~/documents/*`).
+
+At the bottom of the `init.el` file, I've inserted the following code:
+#+begin_src elisp
+(setq org-agenda-files (directory-files-recursively "~/documents/" "\\.org$"))
+#+end_src
+
+Restart DOOMEMACS to apply changes. When prompted, select `n` to avoid importing variables from other org files outside of this directory.
+
+* Useful keybinds
+
+By default, I run DOOMEMACS in `evil` mode, which means that keybinds in EMACS emulate `vi/vim` keybinds.
+
+** Legend for US Keyboard layout
+
+- `M-` is short for "Meta key" and is bound to `ALT`
+- `C-` is short for "Control key" and is bound to `CTRL`
+- `S-` is short for "Super key" and is bound to `SHIFT`
+- `SPC-` is known as a "Leader" key:
+  - *In evil-mode* this is bound to `SPC`.
+
+  > *Note*: You must change to evil-mode to use the leader key in DOOMEMACS.
+
+**** Disable evil-mode
+
+*Rationale*: Some of the descriptions in documentation (such as `SPC-h` or `M-x`) for DOOMEMACS are intended for SPACEMACS users rather than `vi/vim` users, which can be confusing as simple keybinds for /killing/yanking/ etc are different from what is stated.
+
+Easiest way to disable evil-mode is to toggle is with: `M-x 'evil-mode'`
+
+> *Note*: This will only toggle evil-mode for the current EMACS session. To disable evil-mode permanently, refer to the StackExchange forum post: [[https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere][https://emacs.stackexchange.com/questions/53319/how-to-disable-evil-mode-everywhere]]
+
+**** Insert a link snippet (E.G - a URL)
+
+Insert a URL with `C-c C-l` and paste in the URL.
+
+**** Kill/yank commands
+
+I prefer using the `mark` functionality to select text. You can set a mark by using `C-SPC`, then use your left/right keys to highlight the text you want to manipulate.
+
+Then, press any of the operations as per below to operate over the text accordingly.
+
+***** Evil mode
+
+- Copy: `y`
+- Cut: `d`
+- Paste: `P` or `S-p`
+
+***** Default mode
+
+- Copy: `M-w`
+- Cut: `C-w`
+- Paste: `C-y`
