@@ -132,7 +132,7 @@ I've made a number of customizations to EMACS that are helpful.
 
 ** Org-Agenda
 
-I've made an update to ~_~/.config/doom/init.el~ to change the directory that ~org-agenda~ uses to find TODO items (~_~/documents/*~).
+I've made an update to ~​~/.config/doom/init.el~ to change the directory that ~org-agenda~ uses to find TODO items (~_~/documents/*~).
 
 At the bottom of the ~init.el~ file, I've inserted the following code:
 #+begin_src elisp
@@ -184,3 +184,9 @@ Then, press any of the operations as per below to operate over the text accordin
 - Copy: ~M-w~
 - Cut: ~C-w~
 - Paste: ~C-y~
+
+**** Insert an escape character
+
+*Rationale*: When inserting a file path into the start of a code block, such as ~​~/documents/~, this can create formatting issues when the org file is rendered, requiring us to place an escape character beside the initial tilde.
+
+Insert a ~zero width space~ beside the first tilde with ~C-x 8 <RET> zero width space <RET>~.
