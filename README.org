@@ -132,7 +132,7 @@ I've made a number of customizations to EMACS that are helpful.
 
 ** Org-Agenda
 
-I've made an update to ~~/.config/doom/init.el~ to change the directory that ~org-agenda~ uses to find TODO items (~~/documents/*~).
+I've made an update to ~_~/.config/doom/init.el~ to change the directory that ~org-agenda~ uses to find TODO items (~_~/documents/*~).
 
 At the bottom of the ~init.el~ file, I've inserted the following code:
 #+begin_src elisp
