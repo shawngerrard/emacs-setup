@@ -130,16 +130,54 @@ The next time you open ~emacs~, your DOOM configuration should be loaded.
 
 I've made a number of customizations to EMACS that are helpful.
 
+For new packages/EmacsLisp files I want EMACS to load, I've created the directory ~​~/packages~ to hold these files.
+
+Then, to ensure that the packages will load when EMACS starts, add the following line to ~​~/.config/doom/config.el~:
+
+#+begin_src elisp
+(let ((default-directory (expand-file-name "~/packages/")))
+  (normal-top-level-add-subdirs-to-load-path))
+#+end_src
+
 ** Org-Agenda
 
 I've made an update to ~​~/.config/doom/init.el~ to change the directory that ~org-agenda~ uses to find TODO items (~​~/documents/*~).
 
 At the bottom of the ~init.el~ file, I've inserted the following code:
+
 #+begin_src elisp
 (setq org-agenda-files (directory-files-recursively "~/documents/" "\\.org$"))
 #+end_src
 
 Restart DOOMEMACS to apply changes. When prompted, select ~n~ to avoid importing variables from other org files outside of this directory.
+
+** Fountain mode
+
+I use [[https://github.com/rnkn/fountain-mode][Fountain mode]] as my main screenwriting program in EMACS. For more information about Fountain mode, visit [[https://fountain.io][https://fountain.io]].
+
+Make sure to refer to the [[https://fountain.io/syntax/][documentation regarding syntax formatting for .fountain files]].
+
+To install:
+
+1. Clone the Fountain mode files into the ~​~/packages~ directory.
+
+    #+begin_src bash
+    git clone git@github.com:rnkn/fountain-mode.git ~/packages/fountain-mode
+    #+end_src
+
+2. Add the following line to ~​~/.config/doom/config.el~:
+
+    #+begin_src elisp
+    (require 'fountain-mode)
+    #+end_src
+
+3. Restart EMACS.
+
+4. Test the file by opening a ~.fountain~ file.
+
+   #+begin_quote
+You can download a sample ~.fountain~ file with the following command: ~wget https://fountain.io/_downloads/Big-Fish.fountain~
+   #+end_quote
 
 * Useful keybinds
 
