@@ -31,6 +31,16 @@ The first step is to install the base vanilla Gnu-EMACS application compatible w
 
 To get up and running quickly, you can install ~emacs~ using the ~apt~ package manager.
 
+The general repositories used in Ubuntu 20.04 and 22.04 (focal, jammy, etc) run older versions of Emacs (26). These aren't compatible with DOOM.
+
+You will need to use a Personal Package Archive (PPA) to install a newer version of Emacs in Ubuntu. A recommended PPA is 'kelleyk/emacs' and can be added with the following:
+
+#+begin_src bash
+sudo add-apt-repository ppa:kelleyk/emacs
+#+end_src
+
+Now we should be able to install a newer version of Emacs through the ~apt~ package manager.
+
 #+begin_src bash
 sudo apt install emacs28
 #+end_src
@@ -38,7 +48,7 @@ sudo apt install emacs28
 To uninstall ~emacs~ you'll need to also remove all dependencies.
 
 #+begin_src bash
-sudo apt-get remove emacs emacs28 emacs-bin-common emacs-common emacs-el
+sudo apt-get remove emacs emacs28 emacs-bin-common emacs-common emacs-el && sudo apt autoremove
 #+end_src
 
 ** (Recommended) Installing EMACS by building from source :source:
