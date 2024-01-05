@@ -192,6 +192,8 @@ We must also update our ~config.el~ file with the following:
 The above code will set the scanning roam directory for ~.org~ files to ~​~/documents/second-brain/~, bind keys to popular roam functions, set a basic roam node template configuration, and ensure the ~sqlite3~ database is synced with your ~.org~ files in the previously-mentioned directory.
 #+end_quote
 
+Please review [[https://www.youtube.com/watch?v=AyhPmypHDEw&t=635s&ab_channel=SystemCrafters][SystemCrafter's useful video]] to learn how to use ~org-roam~.
+
 ** Fountain mode
 
 I use [[https://github.com/rnkn/fountain-mode][Fountain mode]] as my main screenwriting program in EMACS. For more information about Fountain mode, visit [[https://fountain.io][https://fountain.io]].
