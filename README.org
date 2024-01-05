@@ -151,6 +151,47 @@ At the bottom of the ~init.el~ file, I've inserted the following code:
 
 Restart DOOMEMACS to apply changes. When prompted, select ~n~ to avoid importing variables from other org files outside of this directory.
 
+** Org-Roam
+
+I use [[https://github.com/org-roam/org-roam][org-roam]] as a mind-mapping tool and as a local knowledge-base. I.E - my [[https://github.com/shawngerrard/second-brain][second-brain]].
+
+First, we must create a folder to hold our ~.org~ roam files. For this, I clone/pull [[https://github.com/shawngerrard/second-brain][second-brain]] from my private ~git~ repo. ~mkdir~ somewhere will work just as well.
+
+#+begin_src bash
+git clone git@github.com:shawngerrard/second-brain.git ~/documents/second-brain
+#+end_src
+
+Installing ~org-roam~ in DOOM as is simple as opening ~init.el~ and updating the ~:lang org~ package to pass in the roam flags. We do this by replacing ~org~ in ~init.el~ to ~(org +roam2)~.
+
+#+begin_quote
+*Note*: Using the DOOM ~org-roam~ package will "pin" the package at a specific commit - this is so that DOOM can maintain stability. If you use ~org-roam-ui~ (as I do - see below!), you may need to bump the ~org-roam~ package to keep up with the ~org-roam-ui~ updates. You can do this by using ~M-x doom/bump-package-at-point~ (with your cursor over the package! statement in ~packages.el~). This will generate a ~:pin~ with the the latest commit for the package, which should save you the trouble of guessing where every package is installed.
+#+end_quote
+
+We must also update our ~config.el~ file with the following:
+
+#+begin_src elisp
+(use-package org-roam
+    :ensure t
+    :custom
+    (org-roam-directory (file-truename "~/documents/second-brain/"))
+    :bind (("C-c n l" . org-roam-buffer-toggle)
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n g" . org-roam-graph)
+           ("C-c n i" . org-roam-node-insert)
+           ("C-c n c" . org-roam-capture)
+           ("C-c n j" . org-roam-dailies-capture-today))
+    :config
+    ;; If you're using a vertical completion framework, you might want a more informative completion interface
+    (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+    (org-roam-db-autosync-mode)
+    ;; If using org-roam-protocol
+    (require 'org-roam-protocol))
+#+end_src
+
+#+begin_quote
+The above code will set the scanning roam directory for ~.org~ files to ~​~/documents/second-brain/~, bind keys to popular roam functions, set a basic roam node template configuration, and ensure the ~sqlite3~ database is synced with your ~.org~ files in the previously-mentioned directory.
+#+end_quote
+
 ** Fountain mode
 
 I use [[https://github.com/rnkn/fountain-mode][Fountain mode]] as my main screenwriting program in EMACS. For more information about Fountain mode, visit [[https://fountain.io][https://fountain.io]].
@@ -228,9 +269,22 @@ Then, press any of the operations as per below to operate over the text accordin
 - Copy: ~M-w~
 - Cut: ~C-w~
 - Paste: ~C-y~
+- Kill rest of line: ~C-k~
 
 *** Insert an escape character
 
 *Rationale*: When inserting a file path into the start of a code block, such as ~​~/documents/~, this can create formatting issues when the org file is rendered, requiring us to place an escape character beside the initial tilde.
 
 Insert a ~zero width space~ beside the first tilde with ~C-x 8 <RET> zero width space <RET>~.
+
+** Org-mode shortcuts
+
+You can shortcut some useful EMACS commands in ~org-mode~ by inserting certain characters and pressing keys.
+
+*** Insert a code snippet
+
+You can create a code snippet in an org file by prefixing with ~<s~ and pressing ~tab~.
+
+*** Insert a quote block
+
+You can create a quote block in an org file by prefixing with ~<q~ and pressing ~tab~.
