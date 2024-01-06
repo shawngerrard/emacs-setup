@@ -82,7 +82,9 @@ sudo make install
 
 You should now be able to start ~emacs~ successfully.
 
-> *Note*: To uninstall ~emacs~ you can follow the step above but instead of ~sudo make install~ you can run ~sudo make uninstall~
+#+begin_quote
+*Note*: To uninstall ~emacs~ you can follow the step above but instead of ~sudo make install~ you can run ~sudo make uninstall~
+#+end_quote
 
 * Installing DOOM :installingdoom:
 
@@ -93,19 +95,15 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 ~/.config/emacs/bin/doom install
 #+end_src
 
-Add the DOOM binary files to the ~PATH~ environment variable. You'll need to add the following line to the bottom of your ~​~/.bashrc~ configuration file:
+Add the Emacs binary files to the ~PATH~ environment variable, if you haven't already. You'll need to add the following line to the bottom of your ~​~/.bashrc~ configuration file:
 
 #+begin_src bash
 export PATH="~/.config/emacs/bin:$PATH"
 #+end_src
 
-#+begin_quote
-*Note*: Delete the ~​~/.emacs.d~ folder if this exists - ~emacs~ will initially look in there for configuration files.
-#+end_quote
-
 If you have any private ~emacs~ configuration to sync with DOOM, or if you've made changes to ~init.el~ or ~packages.el~, you'll need to run ~doom sync~.
 
-Finally, to run the new setup, start up ~emacs~ normally in the terminal. You should be met with the DOOM landing screen.
+Finally, to run the new setup, use ~doom run~ in the terminal. You should be met with the DOOM landing screen.
 
 #+begin_quote
 *Note*: Visit [[https://github.com/doomemacs/doomemacs][the official DOOM GitHub repository]] for more information if you have any installation issues.
@@ -180,27 +178,16 @@ Installing ~org-roam~ in DOOM as is simple as opening ~init.el~ and updating the
 We must also update our ~config.el~ file with the following:
 
 #+begin_src elisp
-(use-package org-roam
-    :ensure t
-    :custom
-    (org-roam-directory (file-truename "~/documents/second-brain/"))
-    :bind (("C-c n l" . org-roam-buffer-toggle)
-           ("C-c n f" . org-roam-node-find)
-           ("C-c n g" . org-roam-graph)
-           ("C-c n i" . org-roam-node-insert)
-           ("C-c n c" . org-roam-capture)
-           ("C-c n j" . org-roam-dailies-capture-today))
-    :config
-    ;; If you're using a vertical completion framework, you might want a more informative completion interface
-    (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-    (org-roam-db-autosync-mode)
-    ;; If using org-roam-protocol
-    (require 'org-roam-protocol))
+(setq org-roam-directory (file-truename "~/documents/second-brain/"))
+(setq find-file-visit-truename t)
+(org-roam-db-autosync-mode)
 #+end_src
 
 #+begin_quote
-The above code will set the scanning roam directory for ~.org~ files to ~​~/documents/second-brain/~, bind keys to popular roam functions, set a basic roam node template configuration, and ensure the ~sqlite3~ database is synced with your ~.org~ files in the previously-mentioned directory.
+The above code will set the scanning roam directory for ~.org~ files to ~​~/documents/second-brain/~. You can set this to any other directory as you wish. The next line will instruct Emacs to resolve symlinks. The final line ensures that ~org-roam~ syncs file changes with its cache (sqlite3).
 #+end_quote
+
+You should be able to view the ~org-roam~ command menu in Doom by pressing ~SPC n r~.
 
 Please review [[https://www.youtube.com/watch?v=AyhPmypHDEw&t=635s&ab_channel=SystemCrafters][SystemCrafter's useful video]] to learn how to use ~org-roam~.
 
