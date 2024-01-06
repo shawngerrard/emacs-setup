@@ -187,7 +187,7 @@ We must also update our ~config.el~ file with the following:
 The above code will set the scanning roam directory for ~.org~ files to ~​~/documents/second-brain/~. You can set this to any other directory as you wish. The next line will instruct Emacs to resolve symlinks. The final line ensures that ~org-roam~ syncs file changes with its cache (sqlite3).
 #+end_quote
 
-You should be able to view the ~org-roam~ command menu in Doom by pressing ~SPC n r~.
+Now, run ~doom sync -u~ to reload your configuration. You should be able to view the ~org-roam~ command menu in Doom by pressing ~SPC n r~.
 
 Please review [[https://www.youtube.com/watch?v=AyhPmypHDEw&t=635s&ab_channel=SystemCrafters][SystemCrafter's useful video]] to learn how to use ~org-roam~.
 
