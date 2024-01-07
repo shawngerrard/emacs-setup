@@ -191,6 +191,49 @@ Now, run ~doom sync -u~ to reload your configuration. You should be able to view
 
 Please review [[https://www.youtube.com/watch?v=AyhPmypHDEw&t=635s&ab_channel=SystemCrafters][SystemCrafter's useful video]] to learn how to use ~org-roam~.
 
+** Org-Roam-UI
+
+~Org-roam-ui~ is a fantastic front-end UI for exploring my ~org-roam~ [[https://github.com/shawngerrard/second-brain][second-brain]].
+
+For information relating to this ~org-roam~ UI overlay, visit [[https://github.com/org-roam/org-roam-ui][the org-roam-ui github repository]].
+
+To install, because we use Doom we must first unpin the ~org-roam~ package. This is because ~org-roam-ui~ tries to keep up with the latest features of ~org-roam~. We also must enable the ~org-roam-ui~ package. We can do all of this in our ~packages.el~ with the following:
+
+#+begin_src elisp
+(unpin! org-roam)
+(package! org-roam-ui)
+#+end_src
+
+We must then update our ~config.el~ to use the ~websocket~ package and the ~org-roam-ui~ package. Doing this will install a local server where we can interrogate our second-brain in a UI rendered in our default browser. Update ~config.el~ with the following:
+
+#+begin_src elisp
+(use-package! websocket
+      :after org-roam)
+
+(use-package! org-roam-ui
+  :after org-roam ;; or :after org
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+#+end_src
+
+Finally, run ~doom sync -u~ to install the packages.
+
+Finally, once the sync is complete, we must do the following to access our swish ~org-roam-ui~:
+
+    - Start our local webserver with the following command: ~M-x org-roam-ui-mode RET~
+    - Access [[http://127.0.0.1:35901/][http://127.0.0.1:35901/]] to view our UI served from our local webserver.
+
+#+begin_quote
+*NOTE*: While the ~org-roam-ui-mode~ is enabled, the websocket should interpret changes to our ~org-roam~ nodes and update the UI in real-time.
+#+end_quote
+
 ** Fountain mode
 
 I use [[https://github.com/rnkn/fountain-mode][Fountain mode]] as my main screenwriting program in EMACS. For more information about Fountain mode, visit [[https://fountain.io][https://fountain.io]].
