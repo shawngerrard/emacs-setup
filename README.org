@@ -195,6 +195,8 @@ Please review [[https://www.youtube.com/watch?v=AyhPmypHDEw&t=635s&ab_channel=Sy
 
 ~Org-roam-ui~ is a fantastic front-end UI for exploring my ~org-roam~ [[https://github.com/shawngerrard/second-brain][second-brain]].
 
+[[https://github.com/shawngerrard/emacs-setup/blob/main/org-roam-ui-example.png]]
+
 For information relating to this ~org-roam~ UI overlay, visit [[https://github.com/org-roam/org-roam-ui][the org-roam-ui github repository]].
 
 To install, because we use Doom we must first unpin the ~org-roam~ package. This is because ~org-roam-ui~ tries to keep up with the latest features of ~org-roam~. We also must enable the ~org-roam-ui~ package. We can do all of this in our ~packages.el~ with the following:
