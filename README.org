@@ -184,12 +184,39 @@ We must also update our ~config.el~ file with the following:
 #+end_src
 
 #+begin_quote
-The above code will set the scanning roam directory for ~.org~ files to ~​~/documents/second-brain/~. You can set this to any other directory as you wish. The next line will instruct Emacs to resolve symlinks. The final line ensures that ~org-roam~ syncs file changes with its cache (sqlite3).
+*Note*: The above code will set the scanning roam directory for ~.org~ files to ~​~/documents/second-brain/~. You can set this to any other directory as you wish. The next line will instruct Emacs to resolve symlinks. The final line ensures that ~org-roam~ syncs file changes with its cache (sqlite3).
 #+end_quote
 
 Now, run ~doom sync -u~ to reload your configuration. You should be able to view the ~org-roam~ command menu in Doom by pressing ~SPC n r~.
 
 Please review [[https://www.youtube.com/watch?v=AyhPmypHDEw&t=635s&ab_channel=SystemCrafters][SystemCrafter's useful video]] to learn how to use ~org-roam~.
+
+** Org-Roam capture templates
+
+In the [[https://github.com/shawngerrard/second-brain][second-brain]] repository, I make use of ~org-roam-capture~ templates. These allow me to create similar ~org-roam~ nodes with a consistent structure, as well as speed-up the process of creating nodes.
+
+To do this, we need to update our ~init.el~ with the following:
+
+#+begin_src elisp
+(setq org-roam-capture-templates
+      '(("d" "default" plain
+         "%?"
+         :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+Title: ${title}\n")
+         :unnarrowed t)
+        ("p" "exo-planets" plain (file "~/documents/second-brain/templates/exoplanet.org")
+          :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+Title: ${title}\n")
+          :unnarrowed t)
+        )
+      )
+#+end_src
+
+#+begin_quote
+*Note*: We keep the "default" setting to ensure that we can continue to create blank nodes.
+#+end_quote
+
+#+begin_quote
+*Note*: Please ensure that the filepath in the form above is pointing to the correct template according to your system.
+#+end_quote
 
 ** Org-Roam-UI
 
