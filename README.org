@@ -136,16 +136,24 @@ The next time you open ~emacs~, your DOOM configuration should be loaded.
 
 * Customizations
 
-I've made a number of customizations to EMACS that are helpful.
+I've added customizations and modules to EMACS that are helpful in my workflow. Consult the sections below for updating your Emacs world.
 
-For new packages/EmacsLisp files I want EMACS to load, I've created the directory ~​~/packages~ to hold these files.
+** Theme
 
-Then, to ensure that the packages will load when EMACS starts, add the following line to ~​~/.config/doom/config.el~:
+I replace the ~doom-theme~ variable in ~config.el~ with the following:
 
 #+begin_src elisp
-(let ((default-directory (expand-file-name "~/packages/")))
-  (normal-top-level-add-subdirs-to-load-path))
+(setq doom-theme 'doom-horizon)
 #+end_src
+
+I also create a ~custom.el~ file with the following code:
+
+#+begin_src elisp
+(custom-set-faces
+ '(font-lock-comment-face ((t (:foreground "color-173" :slant italic)))))
+#+end_src
+
+This will update some of the font faces that are harder to see with my setup.
 
 ** Org-Agenda
 
