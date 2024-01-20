@@ -138,6 +138,21 @@ The next time you open ~emacs~, your DOOM configuration should be loaded.
 
 I've added customizations and modules to EMACS that are helpful in my workflow. Consult the sections below for updating your Emacs world.
 
+** Packages
+
+For some custom packages/EmacsLisp files that I want EMACS to load, I've created the directory ~​~/packages~ to hold these files.
+
+Then, to ensure that the packages will be recognized by EMACS when it initializes, we add the following line to ~​~/.config/doom/config.el~:
+
+#+begin_src elisp
+(let ((default-directory (expand-file-name "~/packages/")))
+  (normal-top-level-add-subdirs-to-load-path))
+#+end_src
+
+#+begin_quote
+This allows us to add the ~​~/packages~ directory and all sub-directories to the Emacs load-path
+#+end_quote
+
 ** Theme
 
 I replace the ~doom-theme~ variable in ~config.el~ with the following:
