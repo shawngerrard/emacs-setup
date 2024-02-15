@@ -138,6 +138,17 @@ The next time you open ~emacs~, your DOOM configuration should be loaded.
 
 I've added customizations and modules to EMACS that are helpful in my workflow. Consult the sections below for updating your Emacs world.
 
+** Configuration
+
+My [[.config/doom][configuration]] for DOOM can be copied into the ~​~/.config/doom~ folder to retain all config below. Alternatively, assuming this repository resides within ~​~/documents~, you can execute the following code to use ~symlinks~ instead:
+
+#+begin_src bash
+ln -s ~/documents/emacs-setup/.config/doom/config.el ~/.config/doom/config.el
+ln -s ~/documents/emacs-setup/.config/doom/custom.el ~/.config/doom/custom.el
+ln -s ~/documents/emacs-setup/.config/doom/init.el ~/.config/doom/init.el
+ln -s ~/documents/emacs-setup/.config/doom/packages.el ~/.config/doom/packages.el
+#+end_src
+
 ** Packages
 
 For some custom packages/EmacsLisp files that I want EMACS to load, I've created the directory ~​~/packages~ to hold these files.
@@ -370,6 +381,14 @@ Then, press any of the operations as per below to operate over the text accordin
 *Rationale*: When inserting a file path into the start of a code block, such as ~​~/documents/~, this can create formatting issues when the org file is rendered, requiring us to place an escape character beside the initial tilde.
 
 Insert a ~zero width space~ beside the first tilde with ~C-x 8 <RET> zero width space <RET>~.
+
+*** Traverse org-mode headings
+
+- Move to the parent heading: ~C-c C-u~
+- Move to the prev heading: ~C-c C-p~
+- Move to the next heading: ~C-c C-n~
+- Move to the prev heading on the same level: ~C-c C-b~
+- Move to the next heading on the same level: ~C-c C-f~
 
 ** Org-mode shortcuts
 
