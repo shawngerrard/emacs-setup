@@ -325,6 +325,22 @@ To install:
 You can download a sample ~.fountain~ file with the following command: ~wget https://fountain.io/_downloads/Big-Fish.fountain~
    #+end_quote
 
+
+** ~VTerm~
+
+I use ~vterm~ as a terminal emulation application within DOOM. This can be installed pretty easily by uncommenting the ~vterm~ line in ~init.el~ and running ~doom sync~, however if you attempt to use ~vterm~ (~M-x vterm~) you'll be asked to compile the application first.
+
+#+begin_quote
+*Note*: If you encounter an error advising you to install libtools, you can run the following command in the terminal.
+
+#+begin_src bash
+# Install libtools-bin and cmake
+sudo apt-get install libtool-bin cmake
+#+end_src
+#+end_quote
+
+
+
 * Useful keybinds
 
 By default, I run DOOMEMACS in ~evil~ mode, which means that keybinds in EMACS emulate ~vi/vim~ keybinds.
