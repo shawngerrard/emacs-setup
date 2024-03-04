@@ -343,15 +343,23 @@ sudo apt-get install libtool-bin cmake
 
 I use ~treemacs~ to provide a drawer-style UI to DOOM, similar to [[https://code.visualstudio.com/][VS Code]]. This can be installed by uncommenting the ~treemacs~ line in ~init.el~ and running ~doom sync~.
 
-*** Customizing treemacs
+*** Opening the treemacs drawer
 
-To apply the visual styling of ~VS Code~ to ~treemacs~, I configure DOOM by utilizing their theme extensions.
+You can open the ~treemacs~ drawer by using ~M-X treemacs~.
 
-This can be done by performing the following:
+*** Configuring treemacs
 
-- Ensure the ~all-the-icons~ fonts are installed by running ~M-x all-the-icons-install-fonts~.
--
+By default, I prefer ~treemacs~ to open my ~documents~ folder in the workspace.
 
+To do this, we must edit ~treemacs-edit-workspaces~. We can add multiple projects/folders to the workspace by defining this function.
+
+*** Using treemacs
+
+Documentation for treemacs can be found in the [[https://github.com/Alexander-Miller/treemacs][offcial github page]].
+
+**** Help within treemacs
+
+You can open a hydra containing option keys you can use from within the ~treemacs~ drawer. You need to change to the ~treemacs~ window and use the ~?~ key.
 
 * Useful keybinds
 
