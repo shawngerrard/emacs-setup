@@ -377,6 +377,10 @@ By default, I run DOOMEMACS in ~evil~ mode, which means that keybinds in EMACS e
 *Note*: You must change to evil-mode to use the leader key in DOOMEMACS.
   #+end_quote
 
+  #+begin_quote
+*Note*: ~SPC-u~ is bound to ~universal-argument~ which is used to input into many commands, such as shrinking/enlarging windows/buffers. The traditional equivalent in EMACS is ~C-u~.
+  #+end_quote
+
 ** Keybinds
 
 *** Disable evil-mode
@@ -425,6 +429,11 @@ Insert a ~zero width space~ beside the first tilde with ~C-x 8 <RET> zero width 
 - Move to the next heading: ~C-c C-n~
 - Move to the prev heading on the same level: ~C-c C-b~
 - Move to the next heading on the same level: ~C-c C-f~
+
+*** Shrink/Enlarge windows
+
+- Shrink a window to fit its content: ~C-x -~
+- Shrink or enlarge a window by an argument value (negative values shrink): ~SPC-u <value> C-x ^~
 
 ** Org-mode shortcuts
 
