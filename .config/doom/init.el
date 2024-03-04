@@ -194,6 +194,13 @@
        ;;literate
        (default +bindings +smartparens))
 
+;; Hook to start vterm automatically when DOOM starts
+(add-hook 'window-setup-hook #'vterm 'append)
+
+;; Hook to start treemacs automatically when DOOM starts
+(add-hook 'window-setup-hook #'treemacs 'append)
+
+;; Load templates for org-roam
 (setq org-roam-capture-templates
       '(("d" "default" plain
          "%?"
