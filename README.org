@@ -328,7 +328,11 @@ You can download a sample ~.fountain~ file with the following command: ~wget htt
 
 ** ~VTerm~
 
-I use ~vterm~ as a terminal emulation application within DOOM. This can be installed pretty easily by uncommenting the ~vterm~ line in ~init.el~ and running ~doom sync~, however if you attempt to use ~vterm~ (~M-x vterm~) you'll be asked to compile the application first.
+I use ~vterm~ as a terminal emulation application within DOOM.
+
+**** Installing vterm
+
+This can be installed pretty easily by uncommenting the ~vterm~ line in ~init.el~ and running ~doom sync~, however if you attempt to use ~vterm~ (~M-x vterm~) you'll be asked to compile the application first.
 
 #+begin_quote
 *Note*: If you encounter an error advising you to install libtools, you can run the following command in the terminal.
@@ -339,21 +343,34 @@ sudo apt-get install libtool-bin cmake
 #+end_src
 #+end_quote
 
+**** Starting vterm during DOOM startup
+
+I've added a hook into ~init.el~ to append the application to the ~window-setup-hook~ variable so it starts when DOOM launches.
+
+#+begin_src elisp
+;; Hook to start vterm automatically during DOOM startup
+(add-hook 'window-setup-hook #'vterm 'append)
+#+end_src
+
 ** Treemacs
 
-I use ~treemacs~ to provide a drawer-style UI to DOOM, similar to [[https://code.visualstudio.com/][VS Code]]. This can be installed by uncommenting the ~treemacs~ line in ~init.el~ and running ~doom sync~.
+I use ~treemacs~ to add a drawer-style UI to DOOM, similar to [[https://code.visualstudio.com/][VS Code]].
 
-*** Opening the treemacs drawer
+**** Installing treemacs
+
+This can be installed by uncommenting the ~treemacs~ line in ~init.el~ and running ~doom sync~.
+
+**** Opening the treemacs drawer
 
 You can open the ~treemacs~ drawer by using ~M-X treemacs~.
 
-*** Configuring treemacs
+**** Configuring treemacs
 
 By default, I prefer ~treemacs~ to open my ~documents~ folder in the workspace.
 
 To do this, we must edit ~treemacs-edit-workspaces~. We can add multiple projects/folders to the workspace by defining this function.
 
-*** Using treemacs
+**** Using treemacs
 
 Documentation for treemacs can be found in the [[https://github.com/Alexander-Miller/treemacs][offcial github page]].
 
@@ -361,7 +378,16 @@ Documentation for treemacs can be found in the [[https://github.com/Alexander-Mi
 
 You can open a hydra containing option keys you can use from within the ~treemacs~ drawer. You need to change to the ~treemacs~ window and use the ~?~ key.
 
-* Useful keybinds
+**** Starting treemacs during DOOM startup
+
+I've added a hook into ~init.el~ to append the application to the ~window-setup-hook~ variable so it starts when DOOM launches.
+
+#+begin_src elisp
+;; Hook to start treemacs automatically during DOOM startup
+(add-hook 'window-setup-hook #'treemacs 'append)
+#+end_src
+
+* Useful DOOM keybinds
 
 By default, I run DOOMEMACS in ~evil~ mode, which means that keybinds in EMACS emulate ~vi/vim~ keybinds.
 

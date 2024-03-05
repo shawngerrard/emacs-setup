@@ -194,10 +194,10 @@
        ;;literate
        (default +bindings +smartparens))
 
-;; Hook to start vterm automatically when DOOM starts
+;; Hook to start vterm automatically during DOOM startup
 (add-hook 'window-setup-hook #'vterm 'append)
 
-;; Hook to start treemacs automatically when DOOM starts
+;; Hook to start treemacs automatically during DOOM startup
 (add-hook 'window-setup-hook #'treemacs 'append)
 
 ;; Load templates for org-roam
@@ -220,3 +220,9 @@
           :unnarrowed t)
         )
       )
+
+;; Shrink the vterm window to a nice size
+;;(add-hook 'doom-after-init-hook #'shrink-window-if-larger-than-buffer (nth 0 (window-list)) 'append)
+;;(add-hook 'window-setup-hook (select-window (nth 1 (window-list)) 'shrink-window-if-larger-than-buffer) 'append)
+;;(add-hook 'treemacs-select-hook #'shrink-vterm-window)
+;;(defun shrink-vterm-window () (interactive) (shrink-window-if-larger-than-buffer (nth 2 (window-list))))
