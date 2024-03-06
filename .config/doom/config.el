@@ -105,4 +105,16 @@
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
 
+;; Load fountain-mode into DOOM
 (require 'fountain-mode)
+
+;; Load the nerd-icons package
+(require 'nerd-icons)
+
+;; Install and load the nerd-icons package into treemacs
+(use-package treemacs-nerd-icons
+  :config
+  (treemacs-load-theme "nerd-icons"))
+
+;; Set the specific nerd-font to use
+(setq nerd-icons-font-family "JetBrainsMono Nerd Font Mono")

@@ -366,9 +366,58 @@ You can open the ~treemacs~ drawer by using ~M-X treemacs~.
 
 **** Configuring treemacs
 
+***** Configuring the active workspace to display
+
 By default, I prefer ~treemacs~ to open my ~documents~ folder in the workspace.
 
-To do this, we must edit ~treemacs-edit-workspaces~. We can add multiple projects/folders to the workspace by defining this function.
+To do this, press ~M-x treemacs-edit-workspaces~. We can add multiple projects/folders to the workspace by putting the definition ~​~/documents~ under the *perspectives* heading.
+
+***** Configuring icons / font
+
+By default, typically the icons in ~treemacs~ cannot be found, resulting in malformed icons.
+
+To allow the correct icons to show, we must do the following:
+
+1. Download and extract a ~nerd-font~ from the [[https://www.nerdfonts.com/font-downloads][official nerd-font website]]. I use the ~JetBrainsMono~ font.
+
+   #+begin_src bash
+# Download the JetBrainsMono font
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+
+# Unzip the font files into a subdirectory called JetBrainsMono
+unzip JetBrainsMono.zip -d ./JetBrainsMono
+   #+end_src
+
+2. Install the fonts.
+
+   *If using Windows or WSL*, you need to use the ~windows terminal~ settings to update the fonts. Pressing ~CTRL+,~ will open the settings menu. Update the ~font-face~ setting found in the left-hand menu ~Profiles > Defaults~ then click ~appearance~.
+
+   *If using Ubuntu*, fonts are typically installed in the user font directory under ~​~/.local/share~. To do this, we must perform the following:
+
+   #+begin_src bash
+# Create the directory under /.local/share
+mkdir ~/.local/share/fonts
+
+# Move the fonts into the new directory above
+mv /path/to/extracted/fonts/* ~/.local/share/fonts/
+   #+end_src
+
+3. Install the fonts into DOOM using ~M-x install-package nerd-icons~
+
+4. Update ~config.el~ with the following:
+
+   #+begin_src lisp
+;; Use the nerd-icons package
+(require 'nerd-icons)
+
+;; Install the package into treemacs
+(use-package treemacs-nerd-icons
+  :config
+  (treemacs-load-theme "nerd-icons"))
+
+;; Configure treemacs to use a specific nerd-font
+(setq nerd-icons-font-family "JetBrainsMono Nerd Font Mono")
+   #+end_src
 
 **** Using treemacs
 
