@@ -436,6 +436,41 @@ I've added a hook into ~init.el~ to append the application to the ~window-setup-
 (add-hook 'window-setup-hook #'treemacs 'append)
 #+end_src
 
+** Integrated development environment (IDE)
+
+The next sections under this heading will step through the applications I use to set up an IDE within DOOM.
+
+*** Language Server Protocol (LSP)
+
+~lsp~ is a standardized protocol that acts as an interpreter in an IDE and communicates with language servers to provide "language intelligence tools", such as intelli-sense. You need to install LSP into DOOM as well as a language server for the particular language you want to provide support for.
+
+**** LSP installation
+
+It comes out-of-the-box with DOOM and can be installed by uncommenting ~:tools lsp~ in your ~init.el~.
+
+You also need to indicate which languages should use ~lsp~. You can do this by updating the specific language in ~init.el~ under ~:lang~, as per the following examples:
+
+ - ~(go +lsp)~
+ - ~(python + lsp)~
+
+If your language isn't supported (I.E doesn't contain a ~+lsp~ entry in ~init.el~), then you can add a hook in either ~config.el~ or ~init.el~.
+
+#+begin_src lisp
+(add-hook 'MAJOR-MODE-local-vars-hook #'lsp!)
+#+end_src
+
+#+begin_quote
+*Note*: Change ~MAJOR-MODE~ to the major-mode you're targeting, E.G - ~typescript-mode~.
+#+end_quote
+
+Make sure to run ~doom sync~ after these changes.
+
+**** Language server installation
+
+You can install a language server in DOOM using ~M-x lsp-install-server~.
+
+I use ~ts-ls~ (Typescript Language Server) for supporting ~ts~ code.
+
 * Useful DOOM keybinds
 
 By default, I run DOOMEMACS in ~evil~ mode, which means that keybinds in EMACS emulate ~vi/vim~ keybinds.

@@ -96,7 +96,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       ;;lsp               ; M-x vscode
+       lsp               ; M-x vscode
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -199,6 +199,12 @@
 
 ;; Hook to start treemacs automatically during DOOM startup
 (add-hook 'window-setup-hook #'treemacs 'append)
+
+;; Hook to attach LSP to typescript-mode
+(add-hook 'typescript-mode-local-vars-hook #'lsp!)
+
+;; Hook to attach LSP to javascript-mode
+(add-hook 'javascript-mode-local-vars-hook #'lsp!)
 
 ;; Load templates for org-roam
 (setq org-roam-capture-templates
