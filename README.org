@@ -467,9 +467,16 @@ Make sure to run ~doom sync~ after these changes.
 
 **** Language server installation
 
-You can install a language server in DOOM using ~M-x lsp-install-server~.
+You'll need to install the server package globally on your system. I use ~typescript~, so I install the ~typescript-language-server~ through ~npm~.
 
-I use ~ts-ls~ (Typescript Language Server) for supporting ~ts~ code.
+#+begin_src bash
+# Install typescript-language-server
+npm install -g typescript-language-server typescript
+#+end_src
+
+Then, I can install the appropriate language server in DOOM using ~M-x lsp-install-server~.
+
+Using ~typescript~ as an example, use ~ts-ls~ (Typescript Language Server) for supporting ~ts~ code - ~M-x lsp-install-server RET ts-ls RET~.
 
 * Useful DOOM keybinds
 
