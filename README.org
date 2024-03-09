@@ -480,6 +480,8 @@ Then, I can install the appropriate language server in DOOM using ~M-x lsp-insta
 
 Using ~typescript~ as an example, use ~ts-ls~ (Typescript Language Server) for supporting ~ts~ code - ~M-x lsp-install-server RET ts-ls RET~.
 
+DOOM will then ask you to select the project directory that the language server should import. Usually the project directory for ~typescript~ projects is the directory that contains ~tsconfig.json~.
+
 *** Debug Adapter Protocol (DAP)
 
 Similar to ~lsp~, ~dap~ is a [[https://microsoft.github.io/debug-adapter-protocol//][standardised protocol developed by Microsoft]] that integrates our IDE client (DOOM) with debug servers to provide debugging capabilities to IDE's.
@@ -510,9 +512,21 @@ Run ~doom sync~ to ensure installation.
 
 **** Typescript debug server configuration/integration
 
-This is the basic configuration for configuring ~dap-mode~ for use with ~typescript~ files and integrating it with a ~typsecript debug server~.
+Below is the basic configuration to use in ~config.el~ to configure ~dap-mode~ for use with ~typescript~ files by:
 
+1. Enabling ~typescript-mode~ major mode when a ~.ts~ buffer is created.
+2. Starting ~lsp~ when entering ~typsescript-mode~.
+3. Starting and configuring ~dap-node~ for ~typescript~ debugging when entering ~typescript-mode~.
 
+#+begin_src lisp
+(use-package! typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode lsp-deferred)
+  :config
+  (setq typescript-indent-level 2)
+  (require 'dap-node)
+  (dap-node-setup))
+#+end_src
 
 * Useful DOOM keybinds
 

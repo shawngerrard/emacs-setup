@@ -119,5 +119,11 @@
 ;; Set the specific nerd-font to use
 (setq nerd-icons-font-family "JetBrainsMono Nerd Font Mono")
 
-;; Use and update the dap-mode package configuration
-(use-package! dap-mode)
+;; Use the dap-mode package configuration
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2)
+  (require 'dap-node)
+  (dap-node-setup))
