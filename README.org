@@ -442,7 +442,9 @@ The next sections under this heading will step through the applications I use to
 
 *** Language Server Protocol (LSP)
 
-~lsp~ is a standardized protocol that acts as an interpreter in an IDE and communicates with language servers to provide "language intelligence tools", such as intelli-sense. You need to install LSP into DOOM as well as a language server for the particular language you want to provide support for.
+~lsp~ is a [[https://microsoft.github.io/language-server-protocol/][standardized protocol developed by Microsoft]] that acts as an interpreter in an IDE and communicates with language servers to provide "language intelligence tools", such as intelli-sense.
+
+You need to install LSP into DOOM as well as a language server for the particular language you want to provide support for.
 
 **** LSP installation
 
@@ -477,6 +479,40 @@ npm install -g typescript-language-server typescript
 Then, I can install the appropriate language server in DOOM using ~M-x lsp-install-server~.
 
 Using ~typescript~ as an example, use ~ts-ls~ (Typescript Language Server) for supporting ~ts~ code - ~M-x lsp-install-server RET ts-ls RET~.
+
+*** Debug Adapter Protocol (DAP)
+
+Similar to ~lsp~, ~dap~ is a [[https://microsoft.github.io/debug-adapter-protocol//][standardised protocol developed by Microsoft]] that integrates our IDE client (DOOM) with debug servers to provide debugging capabilities to IDE's.
+
+We need to install ~dap~ into DOOM and also configure it to integrate with our specific language debug servers (I.E ~typescript~, ~C#~, etc).
+
+**** DAP-mode installation
+
+To use DAP, we must install ~dap-mode~.
+
+#+begin_quote
+*Note*: It's possible to use MELPA ~M-x package-install~ to install ~dap-mode~, however I had issues with configuring this so have opted to use DOOM's package management system.
+#+end_quote
+
+Insert the following code into your ~packages.el~ file.
+
+#+begin_src lisp
+(package! dap-mode)
+#+end_src
+
+Insert the following code into your ~config.el~ file.
+
+#+begin_src lisp
+(use-package! dap-mode)
+#+end_src
+
+Run ~doom sync~ to ensure installation.
+
+**** Typescript debug server configuration/integration
+
+This is the basic configuration for configuring ~dap-mode~ for use with ~typescript~ files and integrating it with a ~typsecript debug server~.
+
+
 
 * Useful DOOM keybinds
 

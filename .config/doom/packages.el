@@ -53,5 +53,8 @@
 ;; org-roam-ui requires feature parity with org-roam, hence unpinning org-roam
 (unpin! org-roam)
 
-;; Add the org-roam-ui package
+;; Install the org-roam-ui package
 (package! org-roam-ui)
+
+;; Install the dap-mode package
+(package! dap-mode)

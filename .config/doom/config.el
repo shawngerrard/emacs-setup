@@ -92,7 +92,7 @@
 (use-package! websocket
   :after org-roam)
 
-;; Add the org-roam-ui package
+;; Use and update the org-roam-ui package configuration
 (use-package! org-roam-ui
   :after org-roam ;; or :after org
       ;; ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
@@ -118,3 +118,6 @@
 
 ;; Set the specific nerd-font to use
 (setq nerd-icons-font-family "JetBrainsMono Nerd Font Mono")
+
+;; Use and update the dap-mode package configuration
+(use-package! dap-mode)
