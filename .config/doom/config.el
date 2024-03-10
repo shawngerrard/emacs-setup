@@ -105,6 +105,9 @@
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
 
+;; Hook to launch DOOM in fullscreen
+(add-hook 'window-setup-hook #'toggle-frame-maximized)
+
 ;; Load fountain-mode into DOOM
 (require 'fountain-mode)
 
