@@ -548,6 +548,24 @@ By default, I run DOOMEMACS in ~evil~ mode, which means that keybinds in EMACS e
 *Note*: ~SPC-u~ is bound to ~universal-argument~ which is used to input into many commands, such as shrinking/enlarging windows/buffers. The traditional equivalent in EMACS is ~C-u~.
   #+end_quote
 
+** Custom keybinds
+
+I've created custom keybindings for certain actions in DOOM that make life a little easier.
+
+*** lsp-describe-thing-at-point
+
+This ~lsp~ function describes a keyword/symbol/function/etc in DOOM by pulling up the documentation of it from the official SDK.
+
+I've mapped this keybinding as follows:
+
+#+begin_src lisp
+(global-set-key "\C-c d" lsp-describe-thing-at-point)
+#+end_src
+
+#+begin_quote
+*Note*: This only works when ~lsp-mode~ is enabled, I.E when we're in an IDE file (E.G - .ts, .py, etc).
+#+end_quote
+
 ** Keybinds
 
 *** Disable evil-mode

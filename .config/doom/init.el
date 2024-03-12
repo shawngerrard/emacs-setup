@@ -241,3 +241,6 @@
 ;;(add-hook 'window-setup-hook (select-window (nth 1 (window-list)) 'shrink-window-if-larger-than-buffer) 'append)
 ;;(add-hook 'treemacs-select-hook #'shrink-vterm-window)
 ;;(defun shrink-vterm-window () (interactive) (shrink-window-if-larger-than-buffer (nth 2 (window-list))))
+
+;; Some custom keybinds
+(keymap-global-set "C-c d" 'lsp-describe-thing-at-point)
