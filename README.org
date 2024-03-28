@@ -453,7 +453,7 @@ It comes out-of-the-box with DOOM and can be installed by uncommenting ~:tools l
 You also need to indicate which languages should use ~lsp~. You can do this by updating the specific language in ~init.el~ under ~:lang~, as per the following examples:
 
  - ~(go +lsp)~
- - ~(python + lsp)~
+ - ~(python +lsp)~
 
 If your language isn't supported (I.E doesn't contain a ~+lsp~ entry in ~init.el~), then you can add a hook in either ~config.el~ or ~init.el~.
 
@@ -467,7 +467,7 @@ If your language isn't supported (I.E doesn't contain a ~+lsp~ entry in ~init.el
 
 Make sure to run ~doom sync~ after these changes.
 
-**** Language server installation
+**** Language server installation (Typescript)
 
 You'll need to install the server package globally on your system. I use ~typescript~, so I install the ~typescript-language-server~ through ~npm~.
 
@@ -481,6 +481,17 @@ Then, I can install the appropriate language server in DOOM using ~M-x lsp-insta
 Using ~typescript~ as an example, use ~ts-ls~ (Typescript Language Server) for supporting ~ts~ code - ~M-x lsp-install-server RET ts-ls RET~.
 
 DOOM will then ask you to select the project directory that the language server should import. Usually the project directory for ~typescript~ projects is the directory that contains ~tsconfig.json~.
+
+**** Language server installation (YAML)
+
+You can install the YAML language server by using ~npm~:
+
+#+begin_src bash
+# Install yaml-language-server
+npm install -g yaml-language-server
+#+end_src
+
+Then run the Emacs installer with: ~M-x lsp-install-server RET yamlls RET~.
 
 *** Debug Adapter Protocol (DAP)
 
