@@ -56,7 +56,7 @@ sudo apt-get remove emacs emacs28 emacs-bin-common emacs-common emacs-el && sudo
 You'll need the following packages installed to build the ~emacs~ source.
 
 #+begin_src bash
-libcurses-dev libgnutls28-dev gnutls-bin pkg-config
+libncurses-dev libgnutls28-dev gnutls-bin pkg-config
 #+end_src
 
 Then, obtain the source code tarball for the specific version you want. In this case, we're installing version 28.1.
