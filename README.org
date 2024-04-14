@@ -390,7 +390,7 @@ unzip JetBrainsMono.zip -d ./JetBrainsMono
 
 2. Install the fonts.
 
-   *If using Windows or WSL*, right-click and select *install*. You will also need to use the ~windows terminal~ settings to update the fonts. Pressing ~CTRL+,~ in Windows 11 will open the settings menu, otherwise click on the icon in the top-left of the terminal window and select *preferences*. Update the ~font-face~ setting found in the left-hand menu ~Profiles > Defaults~ then click ~appearance~.
+   *If using Windows or WSL*, right-click and select *install*. You will also need to use the ~windows terminal~ settings to update the fonts. Pressing ~CTRL+COMMA~ in Windows 11 will open the settings menu, otherwise click on the icon in the top-left of the terminal window and select *preferences*. Update the ~font-face~ setting found in the left-hand menu ~Profiles > Defaults~ then click ~appearance~.
 
    *If using Ubuntu*, fonts are typically installed in the user font directory under ~​~/.local/share~. To do this, we must perform the following:
 
