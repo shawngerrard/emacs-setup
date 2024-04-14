@@ -423,6 +423,8 @@ mv /path/to/extracted/fonts/* ~/.local/share/fonts/
 (setq nerd-icons-font-family "JetBrainsMono Nerd Font Mono")
    #+end_src
 
+5. If the icons are still not showing, the icons have not been installed correctly in step 2. You may need to run ~M-x nerd-icons-install-fonts RET~ to ensure that these are installed into the correct directory, particularly if using the ~wslg~ GUI version of ~emacs~.
+
 **** Using treemacs
 
 Documentation for treemacs can be found in the [[https://github.com/Alexander-Miller/treemacs][offcial github page]].
