@@ -27,6 +27,10 @@ The first step is to install the base vanilla Gnu-EMACS application compatible w
 *Note*: You'll need to review the [[https://github.com/doomemacs/doomemacs#prerequisites][DOOM prerequisites for EMACS]] to identify the EMACS versions compatible with DOOM.
 #+end_quote
 
+** Installing EMACS GUI :gui:
+
+The recommended installation instructions for installing EMACS (and the GUI components) can be [[https://github.com/hubisan/emacs-wsl][found on github]],
+
 ** Installing EMACS using the Ubuntu apt package manager :apt:
 
 To get up and running quickly, you can install ~emacs~ using the ~apt~ package manager.
