@@ -209,7 +209,6 @@
 ;; Add new node version into tide to start tsserver lsp -- SET exec-path INSTEAD
 ;;(setq tide-node-executable (expand-file-name "~/.nvm/versions/node/v20.11.1/bin/node"))
 
-
 ;; Load templates for org-roam
 (setq org-roam-capture-templates
       '(("d" "default" plain
@@ -239,3 +238,4 @@
 
 ;; Some custom keybinds
 (keymap-global-set "C-c d" 'lsp-describe-thing-at-point)
+(keymap-global-set "C-c f" 'lsp-find-definition)
