@@ -148,10 +148,14 @@ My [[.config/doom][configuration]] for DOOM can be copied into the ~​~/.config
 
 #+begin_src bash
 ln -s ~/documents/emacs-setup/.config/doom/config.el ~/.config/doom/config.el
-ln -s ~/documents/emacs-setup/.config/doom/custom.el ~/.config/doom/custom.el
 ln -s ~/documents/emacs-setup/.config/doom/init.el ~/.config/doom/init.el
 ln -s ~/documents/emacs-setup/.config/doom/packages.el ~/.config/doom/packages.el
+cp ~/documents/emacs-setup/.config/doom/custom.el ~/.config/doom/custom.el
 #+end_src
+
+#+begin_quote
+**Note:** You will notice that ~custom.el~ is not created as a symlink but is instead copied directly to the ~.config~ folder. This is so that any custom changes per each device made in this repository do not create a conflict with each other, as a ~git pull~ will override settings in symoblically linked files.
+#+end_quote
 
 ** Packages
 

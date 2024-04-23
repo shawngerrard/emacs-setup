@@ -209,11 +209,6 @@
 ;; Add new node version into tide to start tsserver lsp -- SET exec-path INSTEAD
 ;;(setq tide-node-executable (expand-file-name "~/.nvm/versions/node/v20.11.1/bin/node"))
 
-;; Use exec-path-from-shell to ensure DOOM node version environment variables (in "setenv") match exec-path
-;;(package-initialize)
-;;(exec-path-from-shell-initialize)
-;;(exec-path-from-shell-copy-env "NVM_INC")
-;;(exec-path-from-shell-copy-env "NVM_BIN")
 
 ;; Load templates for org-roam
 (setq org-roam-capture-templates
