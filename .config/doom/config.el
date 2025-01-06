@@ -130,3 +130,9 @@
   (setq typescript-indent-level 2)
   (require 'dap-node)
   (dap-node-setup))
+
+(use-package terraform-mode
+  :mode ("\\.tf\\'" "\\.tfvars\\'")
+  :hook (terraform-mode . lsp-deferred)
+  :config
+  (setq terraform-indent-level 2))

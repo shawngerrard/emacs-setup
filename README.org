@@ -527,6 +527,16 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashi
 sudo apt update && sudo apt install terraform-ls
 #+end_src
 
+Add the package hook for `terraform-mode` to start when `.tf` files are opened into `config.el`:
+
+#+begin_src bash
+(use-package terraform-mode
+  :mode ("\\.tf\\'" "\\.tfvars\\'")
+  :hook (terraform-mode . lsp-deferred)
+  :config
+  (setq terraform-indent-level 2))
+#+end_src
+
 *** Debug Adapter Protocol (DAP)
 
 Similar to ~lsp~, ~dap~ is a [[https://microsoft.github.io/debug-adapter-protocol//][standardised protocol developed by Microsoft]] that integrates our IDE client (DOOM) with debug servers to provide debugging capabilities to IDE's.
