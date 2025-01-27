@@ -58,3 +58,6 @@
 
 ;; Install the dap-mode package
 (package! dap-mode)
+
+;; Install the terraform-mode package
+(package! terraform-mode)

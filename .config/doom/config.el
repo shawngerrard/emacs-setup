@@ -135,4 +135,5 @@
   :mode ("\\.tf\\'" "\\.tfvars\\'")
   :hook (terraform-mode . lsp-deferred)
   :config
-  (setq terraform-indent-level 2))
+  (setq terraform-indent-level 2)
+  (setq lsp-disabled-clients '(tfls))
